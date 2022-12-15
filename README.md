@@ -1,7 +1,7 @@
 # PF-Arg-Prog
 # Portfolio Web Personal
 
-<img src="https://raw.githubusercontent.com/MatiGaleano/Portfolio-Frontend/main/src/assets/images/projects/portfolio_01.png" width="600px" />
+<img src="https://raw.githubusercontent.com/PF-Arg-Prog/Portfolio-Frontend/main/src/assets/images/projects/portfolio_01.png" width="600px" />
 
 <p>Proyecto desarrollado dentro del curso de Web Developer de Argentina Programa</p>
 
