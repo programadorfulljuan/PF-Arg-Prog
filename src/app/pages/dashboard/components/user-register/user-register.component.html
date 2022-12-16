@@ -1,0 +1,17 @@
+<h3 class="text-primary fw-bolder fs-4 pt-2 mb-3">Registro de nuevo usuario</h3>
+<form [formGroup]="newUser" (ngSubmit)="onSubmit($event)" autocomplete="new-password" autocomplete="off">
+    <div class="form-floating mb-1 mb-md-3">
+        <input type="email" class="form-control bg-light bg-opacity-50 text-secundary fw-bold border-dark" id="username" placeholder="Email" formControlName="username" required />
+        <label for="username" class="text-dark fw-bold">Email</label>
+    </div>
+    <div class="form-floating mb-1 mb-md-3">
+        <input type="password" class="form-control bg-light bg-opacity-50 text-secundary fw-bold border-dark" id="password" placeholder="Password" formControlName="password" required />
+        <label for="password" class="text-dark fw-bold">Password</label>
+    </div>
+    <div class="form-floating mb-1 mb-md-3">
+        <input type="password" class="form-control bg-light bg-opacity-50 text-secundary fw-bold border-dark" id="confirmPassword" placeholder="Confirm Password" formControlName="confirmPassword" required />
+        <label for="confirmPassword" class="text-dark fw-bold">Confirm Password</label
+    >
+  </div>
+  <input type="submit" value="Enviar" class="btn bg-primary bg-opacity-50 text-light mx-auto col-8 col-md-12" />
+</form>

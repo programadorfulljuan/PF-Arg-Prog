@@ -1,8 +1,8 @@
 # Portfolio Web Personal
 
-<img src="https://raw.githubusercontent.com/MatiGaleano/Portfolio-Frontend/main/src/assets/images/projects/portfolio_01.png" width="600px" />
+<img src="https://raw.githubusercontent.com/programadorfulljuan/PF-Arg-Prog/main/src/assets/images/projects/portfolio_01.png" width="600px" />
 
-<p>Proyecto desarrollado dentro del curso de Web Developer de Argentina Programa</p>
+<p>Proyecto desarrollado dentro en el curso de Web Developer de Argentina Programa</p>
 
 ### Project developed with:
 

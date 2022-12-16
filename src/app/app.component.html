@@ -1,0 +1,9 @@
+<div *ngIf="loading" class="spinner" role="status" style="z-index: 10; margin: auto;"><span class="spinner-grow text-primary"></span>
+</div>
+<div class="app">
+    <ng-particles [id]="id" [options]="particlesOptions" [particlesInit]="particlesInit"></ng-particles>
+    <app-sidebar-nav (onToggleSideBar)="onToggleSideBar($event)"></app-sidebar-nav>
+    <app-header></app-header>
+    <app-body [collapsed]="isSideBarCollapsed" [screenWidth]="screenWidth"></app-body>
+    <app-footer class="app__footer"></app-footer>
+</div>

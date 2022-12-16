@@ -1,0 +1,28 @@
+<app-project-form [data]="data" *ngIf="editMode" (dataChange)="onSubmit($event)" (cancelEdit)="editMode = !editMode"></app-project-form>
+<article class="card bg-light bg-opacity-25 border border-primary" *ngIf="!editMode">
+    <div class="d-flex gap-2 text-primary justify-content-end py-2 pe-3" *ngIf="onLogin">
+        <i class="fa-solid fa-pencil card__icon" (click)="onEditMode()"></i>
+        <i class="fa-solid fa-trash card__icon" (click)="onDelete.emit(data.id)"></i>
+    </div>
+    <div class="d-flex justify-content-center card-header">
+        <h5 class="card__title fs-5 fw-bold text-center text-primary">
+            {{ data.name }}
+        </h5>
+    </div>
+    <img src="{{ API_URL + '/api/image/' + data.image }}" alt="{{ data.name }}" class="card__img-top" />
+    <div class="card-body bg-dark bg-opacity-25">
+        <p class="card__text text-light text-center">{{ data.description }}</p>
+        <p class="card__text text-light text-center mt-auto">Fecha de Creacion: <time> {{data.date | date:'dd/MM/yyyy':'GTM'}}</time></p>
+    </div>
+    <div class="card-footer d-inline-flex flex-column justify-content-center align-items-center g-3">
+        <a type="button" class="btn bg-primary bg-opacity-50 text-light col-10 card__button" *ngIf="data.frontUrl" href="{{ data.frontUrl }}" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-github card__button-icon"></i> Frontend Repo
+        </a>
+        <a type="button" class="btn bg-primary bg-opacity-50 text-light col-10 mt-2 card__button" *ngIf="data.backUrl" href="{{ data.backUrl }}" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-github card__button-icon"></i> Backend Repo
+        </a>
+        <a type="button" class="btn bg-primary bg-opacity-50 text-light col-10 mt-2 card__button" href="{{ data.demoUrl }}" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-arrow-up-right-from-square card__button-icon"></i> Live Demo
+        </a>
+    </div>
+</article>

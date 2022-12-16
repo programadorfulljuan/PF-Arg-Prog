@@ -1,0 +1,50 @@
+<section class="container p-0">
+    <div class="row profile">
+        <div class="d-flex justify-content-center align-items-center col-12 col-md-4 py-5 py-md-2 mx-auto">
+            <ul class="nav flex-column gap-2">
+                <picture class="mx-auto mb-4 profile__picture" [ngClass]="{ 'edit__picture': editMode }">
+                    <input #imgInput [disabled]="!onLogin || !editMode" (change)="onFileChange($event)" class="d-none" accept="image/png, image/jpeg" type="file" id="image" name="image" />
+                    <img (click)="imgInput.click()" src="{{ profilePic }}" *ngIf="preview === ''" alt="Juan Manuel Borda foto de perfil" class="profile__picture__img" [ngClass]="{ 'edit__img': editMode }" />
+                    <img (click)="imgInput.click()" [src]="preview" *ngIf="preview !== ''" alt="Juan Manuel Borda foto de perfil" class="profile__picture__img" [ngClass]="{ 'edit__img': editMode }" />
+                </picture>
+                <button class="btn bg-primary bg-opacity-50 text-light mx-auto col-8 col-md-12" (click)="onClick('soft-skills')">
+            Soft Skills
+          </button>
+                <button class="btn bg-primary bg-opacity-50 text-light mx-auto col-8 col-md-12" (click)="onClick('hard-skills')">
+            Hard Skills
+          </button>
+                <button class="btn bg-primary bg-opacity-50 text-light mx-auto col-8 col-md-12" (click)="onClick('experience')">
+            Experiencia
+          </button>
+                <button class="btn bg-primary bg-opacity-50 text-light mx-auto col-8 col-md-12" (click)="onClick('education')">
+            Educacion
+          </button>
+            </ul>
+        </div>
+        <div class="d-flex justify-content-center col-12 col-md-8 py-5 py-md-2 mx-auto">
+            <article class="col-12 border border-primary border-1 rounded-2 p-4 bg-gradient bg-opacity-25 profile__content">
+                <div class="col-12 d-flex pb-2 align-items-center border-bottom">
+                    <h3 class="fw-bold fs-2 text-primary profile__content__title">
+                        Sobre Mi
+                    </h3>
+                    <i *ngIf="onLogin" class="ms-auto me-0 pb-2 fa-solid fa-user-pen profile__content__icon" (click)="onEdit()"></i>
+                </div>
+                <div class="pt-2 profile__content__body">
+                    <p class="text-break profile__content__p" *ngIf="!editMode">
+                        {{ profile.description }}
+                    </p>
+                    <form *ngIf="editMode" [formGroup]="form" (ngSubmit)="onSubmit($event)">
+                        <div class="form-floating mb-1 mb-md-3">
+                            <textarea class="form-control bg-secondary bg-opacity-25 text-light profile__textarea" formControlName="description" id="description" placeholder="Descripción" [(ngModel)]="profile.description"></textarea>
+                            <label class="text-light fw-bold">Descripción</label>
+                        </div>
+                        <div class="d-flex gap-1">
+                            <input class="btn bg-primary bg-opacity-50 text-light mx-auto col-6 mb-3" type="submit" value="Enviar" />
+                            <input class="btn bg-primary bg-opacity-50 text-light mx-auto col-6 mb-3" type="button" value="Cancelar" (click)="editMode = !editMode">
+                        </div>
+                    </form>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>

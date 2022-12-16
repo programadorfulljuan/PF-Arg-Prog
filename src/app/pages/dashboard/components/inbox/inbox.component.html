@@ -1,0 +1,3 @@
+<section class="container-fluid d-flex flex-column gap-3 pt-3">
+    <app-contact-card class="mb-3" *ngFor="let data of contact" [contact]="data" (delete)="onDelete($event)"></app-contact-card>
+</section>

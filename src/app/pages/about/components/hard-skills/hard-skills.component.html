@@ -1,0 +1,58 @@
+<app-about-titles class="row" [title]="'Hard Skills'" (onAdd)="onAdd()" data-aos="fade-up" data-aos-duration="1550"></app-about-titles>
+<div class="d-flex justify-content-center mt-3">
+    <app-hskill-form *ngIf="addSkill" (dataChange)="onSubmit($event)" (cancelEdit)="addSkill = !addSkill" data-aos="fade-up" data-aos-duration="1550"></app-hskill-form>
+    <app-hskill-form *ngIf="editMode" (dataChange)="onEdit($event)" (cancelEdit)="editMode = !editMode" [data]="editData" [id]="editData.id" data-aos="fade-up" data-aos-duration="1550"></app-hskill-form>
+</div>
+<section class="container skill" data-aos="fade-up" data-aos-duration="1550">
+    <nav class="skill__nav">
+        <ul class="nav nav-tabs skill__nav__list">
+            <li class="nav-item skill__nav__item" role="presentation">
+                <button class="nav-link active skill__nav__button" id="front-tab" data-bs-toggle="tab" data-bs-target="#front" type="button" role="tab" aria-controls="front" aria-selected="true">
+          Frontend
+        </button>
+            </li>
+            <li class="nav-item skill-nav-item" role="presentation">
+                <button class="nav-link skill-nav-button" id="back-tab" data-bs-toggle="tab" data-bs-target="#back" type="button" role="tab" aria-controls="back" aria-selected="false">
+          Backend
+        </button>
+            </li>
+            <li class="nav-item skill-nav-item" role="presentation">
+                <button class="nav-link skill-nav-button" id="tools-tab" data-bs-toggle="tab" data-bs-target="#tools" type="button" role="tab" aria-controls="tools" aria-selected="false">
+          Tools
+        </button>
+            </li>
+        </ul>
+    </nav>
+    <div class="d-flex tab-content bg-gradient bg-opacity-25 rounded-3 skill__panel">
+        <article class="tab-pane active skill__panel__article" id="front" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+            <h3 class="p-2 text-primary mb-auto fs-2 fw-bold skill__panel__title">
+                Frontend
+            </h3>
+            <p class="text-light pb-2 skill__panel__text">
+                Me gusta la programacion y todo su entorno, diseño web, desarrollo de productos, automatización industrial. Trabajo tanto como programador web como programador arduino y para los estilos me gusta convinar librerias como Bootstrap, SP Builders con el toque
+                personal que le pueda dar.
+            </p>
+            <div class="row d-inline-flex justify-content-center gap-1 py-3 mb-3">
+                <app-skill-item class="col" *ngFor="let skill of frontend" [skill]="skill" (onEdit)="onEditMode($event)" (onDelete)="onDelete($event)"></app-skill-item>
+            </div>
+        </article>
+        <article class="tab-pane skill__panel__article" id="back" role="tabpanel" aria-labelledby="back-tab" tabindex="0">
+            <h3 class="p-2 text-primary fs-2 fw-bold skill__panel__title">Backend</h3>
+            <p class="text-light pb-2 skill__panel__text">
+                Eh desarrollado e-commerce, plataformas empresarial, landing page, robot industrial algunas Rest API, conexión base de datos de MySQL y proyectos en Joomla, registros de dominios web
+            </p>
+            <div class="row d-inline-flex justify-content-center gap-1 py-3 mb-3">
+                <app-skill-item class="col" *ngFor="let skill of backend" [skill]="skill" (onEdit)="onEditMode($event)" (onDelete)="onDelete($event)"></app-skill-item>
+            </div>
+        </article>
+        <article class="tab-pane skill__panel__article" id="tools" role="tabpanel" aria-labelledby="tools-tab" tabindex="0">
+            <h3 class="p-2 text-primary fs-2 fw-bold skill__panel__title">Tools</h3>
+            <p class="text-light pb-2 skill__panel__-text">
+                Llevo mi dia a dia con varias herramientas para organizar y agilizar mi trabajo asi poder optimizar mi tiempo
+            </p>
+            <div class="row d-inline-flex justify-content-center gap-1 py-3 mb-3">
+                <app-skill-item class="col" *ngFor="let skill of tools" [skill]="skill" (onEdit)="onEditMode($event)" (onDelete)="onDelete($event)"></app-skill-item>
+            </div>
+        </article>
+    </div>
+</section>

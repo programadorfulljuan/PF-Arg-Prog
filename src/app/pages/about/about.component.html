@@ -1,0 +1,18 @@
+<div class="container about">
+    <section class="row d-flex align-items-center justify-content-center bg-dark bg-opacity-50 about-section" id="about">
+        <app-profile *ngIf="profile" [profile]="profile" data-aos="fade-up" data-aos-duration="1550"></app-profile>
+    </section>
+    <section class="container about-section" id="soft-skills">
+        <app-soft-skills class="row d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-duration="1550">
+        </app-soft-skills>
+    </section>
+    <section class="container about-section" id="hard-skills">
+        <app-hard-skills></app-hard-skills>
+    </section>
+    <section class="container about-section" id="experience">
+        <app-experience></app-experience>
+    </section>
+    <section class="container about-section" id="education">
+        <app-education></app-education>
+    </section>
+</div>

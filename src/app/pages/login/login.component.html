@@ -1,0 +1,55 @@
+<a class="login" data-bs-toggle="modal" data-bs-target="#loginModal" *ngIf="!onLogin">
+    <i class="fa-solid fa-power-off login__icon"></i>
+    <span class="login__text" @fadeInOut *ngIf="collapsed"> Login </span>
+</a>
+<a class="login pointer-event" *ngIf="onLogin" (click)="logout()">
+    <i class="fa-solid fa-power-off login__icon"></i>
+    <span class="login__text" @fadeInOut *ngIf="collapsed"> Loguot </span>
+</a>
+<div #loginModal class="modal fade" tabindex="-1" id="loginModal" aria-labelledby="loginModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark bg-opacity-75">
+            <form [formGroup]="loginForm" (ngSubmit)="login($event)" autocomplete="off">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold fs-4 offset-4" id="loginModalLabel">
+                        Inicio Sesión
+                    </h5>
+                    <button #closeModal type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body bg-dark text-dark" style="z-index: 300;">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control bg-light bg-opacity-25 text-light mb-2" id="username" formControlName="username" placeholder="Username" [ngClass]="{
+              'is-invalid': Username?.errors && Username?.touched,
+              'is-valid': !Username?.errors && Username?.touched
+            }" />
+                        <label for="username">Username</label>
+                        <div *ngIf="Username?.errors && Username?.touched">
+                            <div class="text-danger" *ngIf="Username?.hasError('required')">
+                                Ingrese un nombre de usuario.
+                            </div>
+                            <div class="text-danger" *ngIf="Username?.hasError('email')">
+                                El nombre de usuario debe ser un correo electrónico.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control bg-light bg-opacity-25 text-light mb-2" id="password" formControlName="password" minlength="8" placeholder="Password" [ngClass]="{
+                'is-invalid': Password?.errors && Password?.touched,
+                'is-valid': !Password?.errors && Password?.touched
+              }" />
+                        <label for="password">Password</label>
+                        <div *ngIf="Password?.errors && Password?.touched">
+                            <div class="text-danger" *ngIf="Password?.hasError('required')">
+                                Ingrese una contraseña.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input [disabled]="loading" type="submit" class="btn bg-primary bg-opacity-50 text-light mx-auto col-8 col-md-12 login__button" value="Login" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
